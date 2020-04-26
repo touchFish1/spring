@@ -1,6 +1,7 @@
 package com.eniac.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
  * @description:
  * @createDate: 2020-03-14 10:56
  **/
+@Configuration
 @Service
 public class Wang {
 	public void print(){
