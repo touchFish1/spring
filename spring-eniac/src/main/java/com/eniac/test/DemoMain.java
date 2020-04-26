@@ -16,6 +16,4 @@ public class DemoMain {
 		w.print();
 
 	}
-
-
 }
