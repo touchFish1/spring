@@ -13,7 +13,7 @@ public class DemoMain {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Appconfig.class);
 		Appconfig bean = ac.getBean(Appconfig.class);
-		Wang w = (Wang)ac.getBean("wang");
+		Wang w = (Wang)ac.getBean(Wang.class);
 		w.print();
 
 	}

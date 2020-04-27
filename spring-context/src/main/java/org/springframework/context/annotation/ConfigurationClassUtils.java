@@ -87,6 +87,7 @@ abstract class ConfigurationClassUtils {
 		}
 
 		AnnotationMetadata metadata;
+		//获取类上注解的值
 		if (beanDef instanceof AnnotatedBeanDefinition &&
 				className.equals(((AnnotatedBeanDefinition) beanDef).getMetadata().getClassName())) {
 			// Can reuse the pre-parsed metadata from the given BeanDefinition...
@@ -111,10 +112,12 @@ abstract class ConfigurationClassUtils {
 				return false;
 			}
 		}
-
+		//检查是否添加了Configuration（全注解：添加此注解，spring会生成cglib代理对象，替换原来对象）注解，有则不判断其它注解
 		if (isFullConfigurationCandidate(metadata)) {
+			//添加full（全注解）后面cglib代理用到
 			beanDef.setAttribute(CONFIGURATION_CLASS_ATTRIBUTE, CONFIGURATION_CLASS_FULL);
 		}
+		//没有Configuration注解，则判断是否添加了Component；ComponentScan；Import；ImportResource
 		else if (isLiteConfigurationCandidate(metadata)) {
 			beanDef.setAttribute(CONFIGURATION_CLASS_ATTRIBUTE, CONFIGURATION_CLASS_LITE);
 		}
@@ -123,6 +126,7 @@ abstract class ConfigurationClassUtils {
 		}
 
 		// It's a full or lite configuration candidate... Let's determine the order value, if any.
+		//排序，执行顺序（@Order）可以有多个配置类
 		Integer order = getOrder(metadata);
 		if (order != null) {
 			beanDef.setAttribute(ORDER_ATTRIBUTE, order);

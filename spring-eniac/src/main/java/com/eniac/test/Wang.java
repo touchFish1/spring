@@ -9,8 +9,7 @@ import org.springframework.stereotype.Service;
  * @description:
  * @createDate: 2020-03-14 10:56
  **/
-@Configuration
-@Service
+
 public class Wang {
 	public void print(){
 		System.out.println("wangjingen");
