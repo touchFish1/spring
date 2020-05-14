@@ -12,9 +12,10 @@ public class DemoMain {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Appconfig.class);
-		Appconfig bean = ac.getBean(Appconfig.class);
-		Wang w = (Wang)ac.getBean(Wang.class);
-		w.print();
-
+//		Wang bean = (Wang) ac.getBean(Wang.class);
+//		WangTest bean = (WangTest) ac.getBean("wangTest");
+//		bean.print();
+//		Wang bean = ac.getBean(Wang.class);
+//		bean.print();
 	}
 }

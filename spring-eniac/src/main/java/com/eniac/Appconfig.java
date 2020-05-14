@@ -1,9 +1,7 @@
 package com.eniac;
 
 
-import com.eniac.test.Jin;
-import com.eniac.test.Wang;
-import org.springframework.context.annotation.Bean;
+import com.eniac.annotation.EnableOrignReq;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,19 +12,8 @@ import org.springframework.context.annotation.Configuration;
  **/
 @ComponentScan(value = "com.eniac")
 @Configuration
+@EnableOrignReq({"com.eniac.wang"})
 public class Appconfig {
-	@Bean
-	public Jin getJin() {
-		getWang();
-		return new Jin();
-	}
-	@Bean
-	public Wang getWang() {
-		return new Wang();
-	}
-
-
-
 
 
 
